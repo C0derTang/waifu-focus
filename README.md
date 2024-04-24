@@ -11,19 +11,11 @@ Waifu Focus is a Chrome extension that allows users to block access to specified
 - **Privacy Focused**: All data is stored locally, and no personal information is sent or shared.
 
 ## Installation 
-(extension is pending review on the chrome web store, link will be posted shortly)
+( [chrome web store link](https://chrome.google.com/webstore/detail/oilebkjfhbkbmablbmhellicongmgbml?authuser=0&hl=en) )
+
 ### Prerequisites
 
 - Google Chrome Browser
-
-### Steps
-
-1. Download the `.zip` file of the Waifu Focus extension.
-2. Unzip the file and you will have a new folder.
-3. Open Chrome and go to `chrome://extensions/`.
-4. Enable Developer Mode by toggling the switch at the top-right.
-5. Click on `Load unpacked` and select the folder you unzipped.
-6. The extension should now appear in your Chrome toolbar.
 
 ## How to Use
 

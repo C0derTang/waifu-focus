@@ -45,11 +45,13 @@ function addItem() {
     const newUrl = elem.value.trim();
     if (newUrl && isValidUrl(newUrl)) {
         if (!Utils.currentItems.has(newUrl)) {  // Check if the new element is already in the Set
+            if (Utils.currentItems.size == 0){
+                alert('Im so proud of you, you\'ve finally come to your senses about slacking off!');
+            }
             Utils.currentItems.add(newUrl);
             addItemToList(newUrl);
             elem.value = '';
             Utils.saveItems();
-            alert('Im so proud of you, you\'ve finally come to your senses about slacking off!');
         } else {
             alert('I appreciate your dedication dear, but you\'ve already blocked this website.');
         }
@@ -69,6 +71,7 @@ export function addItemToList(item){
     delbutt.classList.add('smallbutt');
     delbutt.onclick = function() {
         Utils.deleteItem(li);
+        alert('I hope you\'re done with all your work!');
     }
     li.appendChild(delbutt);
 
