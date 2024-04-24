@@ -1,3 +1,4 @@
+import * as Utils from './backend_util.js';
 function isValidUrl(url){// checks for valid url
     const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const butt = document.getElementById('additembutt');
     butt.addEventListener('click', addItem);
 
-    loadItems();
+    Utils.loadItems();
 });
 
 //TODO: add better functionality for more waifus
@@ -51,7 +52,7 @@ function addItem() {
         addItemToList(newelem);
         elem.value = '';
         //updates local url storage
-        saveItems();
+        Utils.saveItems();
         alert('Im so proud of you, you\'ve finally come to your senses about slacking off!');
     }else{
         alert('uwu -uhm, could u pls enter a valid site url? >w<');
@@ -73,34 +74,9 @@ function addItemToList(item){
     delbutt.textContent = 'X';
     delbutt.classList.add('smallbutt');
     delbutt.onclick = function() {
-        deleteItem(li);
+        Utils.deleteItem(li);
     }
     li.appendChild(delbutt);
 
     list.appendChild(li);
-}
-
-//backend functions to update storage
-//TODO: move to utility file
-//orz coder tang
-function loadItems() {
-    chrome.storage.local.get(['items'], function(result) {
-        const items = result.items || [];
-        items.forEach(addItemToList);
-    });
-}
-
-function saveItems(){
-    const items = [];
-    document.querySelectorAll('#sites li').forEach(function(li) {
-        items.push(li.textContent.slice(0, -1).trim());
-    });
-    chrome.storage.local.set({'items': items}, function() {
-        console.log('Items are saved in chrome.storage');
-    });
-}
-
-function deleteItem(li) {
-    li.parentNode.removeChild(li);
-    saveItems();
 }
