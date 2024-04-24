@@ -1,0 +1,114 @@
+body {
+    background-color: #f9f1f0; /* Soft pink background for a creamy look */
+    font-family: 'Merriweather', serif;
+    color: #333; /* Gentle text color */
+}
+
+.roundbox {
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 20px;
+    width: 60%;
+    margin: auto;
+    background-color: #ffffff; /* White background for the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for 3D effect */
+    padding: 20px; /* Additional padding for aesthetic spacing */
+}
+
+h1, h2{
+    color: #ff99cc; /* Soft pink color for headers */
+    text-shadow: 1px 1px 2px #e6e6e6; /* Light shadow for a fluffy look */
+}
+
+#sites{
+    list-style-type: none;
+}
+
+li{
+    color: #ff99cc; /* Soft pink color for headers */
+    text-shadow: 1px 1px 2px #e6e6e6; /* Light shadow for a fluffy look */
+    font-size: medium;
+}
+
+.smallbutt, .roundbutt {
+    background-color: #ffccf9; /* Light pink background */
+    color: #5c5c5c; /* Darker font color for contrast */
+    border: 2px solid #1A1A1A;
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    
+    outline: none;
+    
+    width: auto;
+    
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.smallbutt{
+    margin-left: 5px;
+}
+
+.roundbutt{
+    min-height: 30px;
+    padding: 16px 24px;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.roundbutt:disabled, .smallbutt:disabled {
+  pointer-events: none;
+}
+
+.roundbutt:hover, .smallbutt:hover{
+    background-color: #f6a6ff; /* Lighter pink on hover */
+    color: #ffffff; /* White text on hover */
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 8px;
+  transform: translateY(-2px);
+}
+
+.roundbutt:active, .smallbutt:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.image-option {
+    display: inline-block;
+    margin: auto;
+}
+
+.image-option img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 2px 5px #aaaaaa;
+}
+
+.image-option input[type="radio"] {
+    display: none;
+}
+
+.image-option label {
+    cursor: pointer;
+}
+
+.image-option input[type="radio"]:checked + label img {
+    border-color: #ff66aa; /* Change to a soft pink border when selected */
+    box-shadow: 0 0 15px #ff66aa;
+    transform: scale(1.1); 
+}
+
+.final{
+    width: 100%;
+}

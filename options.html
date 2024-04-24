@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="options.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <title>Configuration</title>
+</head>
+<body>
+    
+    <div class="roundbox">
+        <h1>Pick your Waifu!</h1>
+        <form>
+
+            <div class="image-option">
+                <input type="radio" id="option1" name="choice" value="option1">
+                <label for="option1">
+                    <img src="images/option1.jpeg" alt="Option 1">
+                </label>
+            </div>
+
+            <div class="image-option">
+                <input type="radio" id="option2" name="choice" value="option2">
+                <label for="option2">
+                    <img src="images/option2.jpeg" alt="Option 2">
+                </label>
+            </div>
+
+            <div class="image-option">
+                <input type="radio" id="option3" name="choice" value="option3">
+                <label for="option3">
+                    <img src="images/option3.jpeg" alt="Option 3">
+                </label>
+            </div>
+
+            <div class="image-option">
+                <input type="radio" id="option4" name="choice" value="option4">
+                <label for="option4">
+                    <img src="images/option4.jpeg" alt="Option 4">
+                </label>
+            </div>
+
+            <div class="image-option">
+                <input type="radio" id="option5" name="choice" value="option5">
+                <label for="option5">
+                    <img src="images/option5.jpeg" alt="Option 5">
+                </label>
+            </div>
+
+            <div class="image-option">
+                <input type="radio" id="option6" name="choice" value="option6">
+                <label for="option6">
+                    <img src="images/option6.jpeg" alt="Option 6">
+                </label>
+            </div>
+
+            <button id="waifubutt" class="roundbutt" type="button">Choose</button>
+        </form>
+
+        <h2>Sites to Block</h2>
+        <input class="roundbutt" type="text" id="listadd" placeholder="Add a url to block">
+        <button class="roundbutt" id="additembutt">Add Item</button>
+        <ul class="roundbox" id="sites"></ul>
+
+    </div>
+</body>
+<script src="options.js"></script>
+</html>
