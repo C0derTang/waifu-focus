@@ -28,7 +28,6 @@ function saveWaifu() {
         whenever user changes their waifu selection, this will be called
         it will log which waifu they changed it to
         it also updates the local storage
-
      */
     const waifupic = document.querySelector('input[name="choice"]:checked').value;
     //above line bases the name of the choice selected changes the logged waifu
@@ -36,8 +35,6 @@ function saveWaifu() {
         console.log('Image selection saved:', waifupic);
     });
 }
-
-
 function addItem() {
     /*
         entire backend functionality of adding urls to block
@@ -45,27 +42,24 @@ function addItem() {
         also has cute response for both failed and succesful adding of websites
     */
     const elem = document.getElementById('listadd');
-    const newelem = elem.value.trim();
-
-    if (newelem && isValidUrl(newelem) && 1 /*link already exists*/) {
-        //saves url to list
-        addItemToList(newelem);
-        elem.value = '';
-        //updates local url storage
-        Utils.saveItems();
-        alert('Im so proud of you, you\'ve finally come to your senses about slacking off!');
-    } else if (1/*check if link already exists*/) {
-        alert('I appreciate your dedication dear, but you\'ve already blocked this website.');
-    }
-    else{
+    const newUrl = elem.value.trim();
+    if (newUrl && isValidUrl(newUrl)) {
+        if (!Utils.currentItems.has(newUrl)) {  // Check if the new element is already in the Set
+            Utils.currentItems.add(newUrl);
+            addItemToList(newUrl);
+            elem.value = '';
+            Utils.saveItems();
+            alert('Im so proud of you, you\'ve finally come to your senses about slacking off!');
+        } else {
+            alert('I appreciate your dedication dear, but you\'ve already blocked this website.');
+        }
+    } else {
         alert('uwu -uhm, could u pls enter a valid site url? >w<');
     }
 }
 
+
 export function addItemToList(item){
-    /*
-        creates frontend of adding url
-     */
     const list = document.getElementById('sites');
     const li = document.createElement('li');
     li.textContent = item;
