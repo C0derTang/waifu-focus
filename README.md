@@ -43,10 +43,6 @@ For any issues or support, please file an issue through the GitHub repository.
 
 Contributions are welcome! Please fork the repository and submit a pull request with your new features or fixes.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
 ## Acknowledgments
 
 - Thanks to all the artists whose art inspired and made this project possible.
