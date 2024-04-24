@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+    /*
+        blocks website
+        loads random text and image
+        TODO: move rand stuff to seperaate function
+        abstraction :))
+     */
     chrome.storage.local.get(['waifupic'], function(result) {
         if (!result.waifupic) {
             result.waifupic = 'option1';
