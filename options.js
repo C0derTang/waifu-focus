@@ -47,24 +47,24 @@ function addItem() {
     const elem = document.getElementById('listadd');
     const newelem = elem.value.trim();
 
-    if (newelem && isValidUrl(newelem)) {
+    if (newelem && isValidUrl(newelem) && 1 /*link already exists*/) {
         //saves url to list
         addItemToList(newelem);
         elem.value = '';
         //updates local url storage
         Utils.saveItems();
         alert('Im so proud of you, you\'ve finally come to your senses about slacking off!');
-    }else{
+    } else if (1/*check if link already exists*/) {
+        alert('I appreciate your dedication dear, but you\'ve already blocked this website.');
+    }
+    else{
         alert('uwu -uhm, could u pls enter a valid site url? >w<');
     }
 }
 
-function addItemToList(item){
+export function addItemToList(item){
     /*
-        entire logic for adding url
-        calls the backend method to add url
-        also creates frontend within method
-        also creates x button on url to remove it
+        creates frontend of adding url
      */
     const list = document.getElementById('sites');
     const li = document.createElement('li');

@@ -1,4 +1,5 @@
 //backend functions to update storage
+import {addItemToList} from './options.js';
 export function loadItems() {
     chrome.storage.local.get(['items'], function(result) {
         const items = result.items || [];
