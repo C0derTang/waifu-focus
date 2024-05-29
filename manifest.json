@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Waifu Focus",
+    "version": "2.0",
+    "description": "Boost productivity with waifus, idols, and images of your choice!",
+
+    "action": {},
+    "options_page": "index.html",
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "permissions": [
+        "tabs",
+        "storage"
+    ]
+}
