@@ -1,8 +1,43 @@
-# React + Vite
+# Waifu Focus - Chrome Extension
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Waifu Focus is a Chrome extension that allows users to block access to specified websites, replacing them with a themed page featuring anime waifus! It's a fun and engaging way to stay focused, prevent distractions, and customize your browsing experience with a touch of anime.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Block Websites**: Easily add websites to your block list and ensure they cannot be accessed during your specified times.
+- **Custom Anime-themed Block Pages**: Blocked pages are replaced with custom images and messages from your favorite waifu, making the experience less frustrating and more enjoyable.
+- **Easy to Use**: Simple interface for managing your list of blocked websites.
+- **Dynamic Blocking**: Update your block list on-the-fly with immediate effect across all tabs.
+- **Privacy Focused**: All data is stored locally, and no personal information is sent or shared.
+
+## Installation 
+( [chrome web store link](https://chrome.google.com/webstore/detail/oilebkjfhbkbmablbmhellicongmgbml?authuser=0&hl=en) )
+
+### Prerequisites
+
+- Google Chrome Browser
+
+## How to Use
+
+1. Click on the Waifu Focus icon in your Chrome toolbar to open the popup.
+2. Enter the URL of the website you wish to block in the input field and click `Add`.
+3. To remove a site from the block list, click the `X` next to the site's URL in the list.
+
+## Configuration Options
+
+- **Choose Your Favorite Waifu**: Select which waifu you want to appear on the blocked page from a predefined list. More characters to be added in the future!
+
+## Support
+
+For any issues or support, please file an issue through the GitHub repository.
+
+## Contributions
+
+Contributions are welcome! Please fork the repository and submit a pull request with your new features or fixes.
+
+## Acknowledgments
+
+- Thanks to all the artists whose art inspired and made this project possible.
+- Special thanks to the open-source community for continuous support and inspiration.
+
+---
