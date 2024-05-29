@@ -55,28 +55,31 @@ function LinkBox() {
   }
 
   return (
-    <div className="p-4 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-4">
-      <h2 className="text-2xl font-bold">Sites to Block</h2>
+    <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-6">
+      <h2 className="text-2xl font-bold text-center">Sites to Block</h2>
       <input
         type="text"
         value={url}
         onChange={handleInputChange}
         placeholder="Add a URL to block"
-        className="border border-gray-300 p-2 rounded w-full"
+        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
       <button
         onClick={addItem}
-        className="bg-blue-500 text-white p-2 rounded mt-2"
+        className="w-full p-2 bg-blue-500 text-black rounded hover:bg-blue-600 transition duration-300"
       >
         Add Item
       </button>
-      <ul className="list-disc pl-5">
+      <ul className="space-y-2">
         {Array.from(blockedSites).map((site, index) => (
-          <li key={index} className="flex justify-between items-center">
-            {site}{" "}
+          <li
+            key={index}
+            className="flex justify-between items-center p-2 border border-gray-300 rounded hover:bg-gray-100 transition duration-300"
+          >
+            {site}
             <button
               onClick={() => deleteItem(site)}
-              className="text-red-500"
+              className="rounded-full text-red-500 hover:text-red-600 transition duration-300"
             >
               X
             </button>

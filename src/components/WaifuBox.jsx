@@ -45,8 +45,8 @@ function WaifuBox() {
         </div>
         <div className="p-4 border border-gray-300">
           {activeTab === 0 && <WaifuTab/>}
-          {activeTab === 1 && <div>Coming Soon</div>}
-          {activeTab === 2 && <div>Coming Soon</div>}
+          {activeTab === 1 && <div>Coming Soon!</div>}
+          {activeTab === 2 && <div>Coming Soon!</div>}
         </div>
       </div>
     </>

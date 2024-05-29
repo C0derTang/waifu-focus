@@ -4,7 +4,20 @@
     "version": "2.0",
     "description": "Boost productivity with waifus, idols, and images of your choice!",
 
-    "action": {},
+    "action": {
+        "default_icon": {
+            "16": "public/icon-16.png",
+            "32": "public/icon-32.png",
+            "48": "public/icon-48.png",
+            "128": "public/icon-128.png"
+        }
+    },
+    "icons": {
+        "16": "public/icon-16.png",
+        "32": "public/icon-32.png",
+        "48": "public/icon-48.png",
+        "128": "public/icon-128.png"
+    },
     "options_page": "index.html",
     "background": {
         "service_worker": "background.js",
