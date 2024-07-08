@@ -55,31 +55,33 @@ function LinkBox() {
   }
 
   return (
-    <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md space-y-6">
-      <h2 className="text-2xl font-bold text-center">Sites to Block</h2>
+    <div className="bg-gray-800 p-6 max-w-md mx-auto rounded-lg pinkglow space-y-6">
+      <h2 className="text-2xl font-bold text-center text-neon-pink">Sites to Block</h2>
       <input
         type="text"
         value={url}
         onChange={handleInputChange}
         placeholder="Add a URL to block"
-        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="w-full py-2 border border-neon-pink bg-gray-800 rounded focus:outline-none focus:ring-2 focus:ring-neon-pink transition duration-100"
       />
-      <button
-        onClick={addItem}
-        className="w-full p-2 bg-blue-500 text-black rounded hover:bg-blue-600 transition duration-300"
-      >
-        Add Item
-      </button>
+      <div className="mt-4">
+        <button
+          onClick={addItem}
+          className="rounded-lg w-full py-2 text-neon-pink bg-slate-800 hover:bg-slate-700 transition duration-100"
+        >
+          Add Item
+        </button>
+      </div>
       <ul className="space-y-2">
         {Array.from(blockedSites).map((site, index) => (
           <li
             key={index}
-            className="flex justify-between items-center p-2 border border-gray-300 rounded hover:bg-gray-100 transition duration-300"
+            className="text-neon-pink flex justify-between items-center p-2 border border-neon-pink bg-gray-800 rounded"
           >
             {site}
             <button
               onClick={() => deleteItem(site)}
-              className="rounded-full text-red-500 hover:text-red-600 transition duration-300"
+              className="rounded-full text-neon-pink bg-slate-800 hover:bg-slate-700 transition duration-100"
             >
               X
             </button>

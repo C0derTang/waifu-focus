@@ -3,7 +3,7 @@ import LinkBox from "./components/LinkBox.jsx"
 
 function App() {
   return (
-    <div className="h-screen overflow-auto">
+    <div className="h-screen overflow-auto bg-gray-900">
       <WaifuBox/>
       <LinkBox/>
     </div>
