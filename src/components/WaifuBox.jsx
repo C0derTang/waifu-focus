@@ -23,20 +23,20 @@ function WaifuBox() {
   };
 
   return (
-    <div className="bg-gray-900 pb-5">
-      <h1 className="mt-10 text-center text-4xl text-neon-pink font-bold">
+    <div className="bg-slate-600 pb-5">
+      <h1 className="mt-10 text-center text-4xl font-bold text-blue-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
         {activeTab === 0 && "Waifu Focus"}
         {activeTab === 1 && "K-pop Focus"}
         {activeTab === 2 && "Your Focus"}
       </h1>
-      <div className="w-full max-w-md mx-auto mt-10 bg-gray-800 p-4 rounded-lg pinkglow">
-        <div className="flex border-b border-neon-pink">
+      <div className="w-full max-w-md mx-auto mt-10 bg-blue-300 p-4 rounded-lg">
+        <div className="flex border-b border-blue-500">
           <div
             className={`px-4 py-2 cursor-pointer ${
               activeTab === 0
-                ? "border-b-2 border-neon-pink text-neon-pink"
-                : "text-white"
-            } hover:text-neon-pink transition-colors`}
+                ? "border-b-2 border-blue-500 text-blue-500"
+                : "text-slate-800"
+            } hover:text-blue-500 transition-colors`}
             onClick={() => handleTabClick(0)}
           >
             Waifu
@@ -44,9 +44,9 @@ function WaifuBox() {
           <div
             className={`px-4 py-2 cursor-pointer ${
               activeTab === 1
-                ? "border-b-2 border-neon-pink text-neon-pink"
-                : "text-white"
-            } hover:text-neon-pink transition-colors`}
+                ? "border-b-2 border-slate-500 text-slate-500"
+                : "text-slate-800"
+            } hover:text-slate-500 transition-colors`}
             onClick={() => handleTabClick(1)}
           >
             K-pop
@@ -54,18 +54,18 @@ function WaifuBox() {
           <div
             className={`px-4 py-2 cursor-pointer ${
               activeTab === 2
-                ? "border-b-2 border-neon-pink text-neon-pink"
-                : "text-white"
-            } hover:text-neon-pink transition-colors`}
+                ? "border-b-2 border-slate-500 text-slate-500"
+                : "text-slate-800"
+            } hover:text-slate-500 transition-colors`}
             onClick={() => handleTabClick(2)}
           >
             Custom
           </div>
         </div>
-        <div className="border border-neon-pink bg-gray-700 rounded-b-lg">
+        <div className="border border-slate-500 bg-blue-300 rounded-b-lg">
           {activeTab === 0 && <WaifuTab />}
           {activeTab === 1 && <KpopTab />}
-          {activeTab === 2 && <div className="text-white">Coming Soon!</div>}
+          {activeTab === 2 && <div className="text-slate-800">Coming Soon!</div>}
         </div>
       </div>
     </div>

@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 .selected-waifu-img {
-  border-color: #ff66aa; /* Soft pink border when selected */
-  box-shadow: 0 0 15px #ff66aa; /* Soft pink glow */
+  border-color: #6aace9; 
+  box-shadow: 0 0 15px #6aace9;
   transform: scale(1.1); /* Slightly larger */
 }
 
 .pinkglow{
-    border-color: #ff66aa; /* Soft pink border when selected */
-    box-shadow: 0 0 15px #ff66aa; /* Soft pink glow */
+    border-color: #6aace9; 
+    box-shadow: 0 0 15px #6aace9; 
 }
 
 /* prevent css leaking */
