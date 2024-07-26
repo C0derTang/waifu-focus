@@ -17,7 +17,9 @@ import aespa from "../assets/kpop/aespa.jpeg";
 import beomgyu from "../assets/kpop/beomgyu.jpeg";
 import bts from "../assets/kpop/bts.jpeg";
 import chaeyoung from "../assets/kpop/chaeyoung.jpeg";
+import chaewon from "../assets/kpop/chaewon.jpeg";
 import dahyun from "../assets/kpop/dahyun.jpeg";
+import eunchae from "../assets/kpop/eunchae.jpeg";
 import giselle from "../assets/kpop/giselle.jpeg";
 import hueningkai from "../assets/kpop/hueningkai.jpeg";
 import illit from "../assets/kpop/illit.jpeg";
@@ -29,6 +31,7 @@ import jimin from "../assets/kpop/jimin.jpeg";
 import jin from "../assets/kpop/jin.jpeg";
 import jungkook from "../assets/kpop/jungkook.jpeg";
 import karina from "../assets/kpop/karina.jpeg";
+import kazuha from "../assets/kpop/kazuha.jpeg";
 import lesserafim from "../assets/kpop/lesserafim.jpeg"
 import mina from "../assets/kpop/mina.jpeg";
 import minju from "../assets/kpop/minju.jpeg";
@@ -37,6 +40,7 @@ import momo from "../assets/kpop/momo.jpeg";
 import nayeon from "../assets/kpop/nayeon.jpeg";
 import ningning from "../assets/kpop/ningning.jpeg";
 import rm from "../assets/kpop/rm.jpeg";
+import sakura from "../assets/kpop/sakura.jpeg";
 import sana from "../assets/kpop/sana.jpeg";
 import soobin from "../assets/kpop/soobin.jpeg";
 import suga from "../assets/kpop/suga.jpeg";
@@ -49,6 +53,7 @@ import winter from "../assets/kpop/winter.jpeg";
 import wonhee from "../assets/kpop/wonhee.jpeg";
 import yeonjun from "../assets/kpop/yeonjun.jpeg";
 import yunah from "../assets/kpop/yunah.jpeg";
+import yunjin from "../assets/kpop/yunjin.jpeg";
 
 const waifus = [
   { icon: ai, id: 0 },
