@@ -32,7 +32,7 @@ function BlockedPage() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-slate-700">
+    <div className="flex items-center justify-center min-h-screen">
       {activeTab === 0 && activeWaifu && (
         <img src={activeWaifu.icon} alt="Waifu" className="rounded-lg shadow-lg border-2 selected-waifu-img max-h-96" />
       )}

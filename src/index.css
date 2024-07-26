@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 .selected-waifu-img {
-  border-color: #6aace9; 
-  box-shadow: 0 0 15px #6aace9;
+  border-color: #ff57f1; 
+  box-shadow: 0 0 15px #ff57f1; 
   transform: scale(1.1); /* Slightly larger */
 }
 
 .pinkglow{
-    border-color: #6aace9; 
-    box-shadow: 0 0 15px #6aace9; 
+    border-color: #ff57f1; 
+    box-shadow: 0 0 15px#ff57f1; 
 }
 
 /* prevent css leaking */

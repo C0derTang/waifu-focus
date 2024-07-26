@@ -29,6 +29,7 @@ import jimin from "../assets/kpop/jimin.jpeg";
 import jin from "../assets/kpop/jin.jpeg";
 import jungkook from "../assets/kpop/jungkook.jpeg";
 import karina from "../assets/kpop/karina.jpeg";
+import lesserafim from "../assets/kpop/lesserafim.jpeg"
 import mina from "../assets/kpop/mina.jpeg";
 import minju from "../assets/kpop/minju.jpeg";
 import moka from "../assets/kpop/moka.jpeg";
@@ -82,7 +83,7 @@ const idols = [
   {
     icon: aespa,
     id: 3,
-    name: "aespa",
+    name: "AESPA",
     members: [giselle, karina, winter, ningning],
   },
   {
@@ -97,6 +98,12 @@ const idols = [
     name: "TXT",
     members: [yeonjun, soobin, beomgyu, taehyun, hueningkai],
   },
+  {
+    icon: lesserafim,
+    id: 6,
+    name: "LE SSERAFIM",
+    members: [chaewon, kazuha, sakura, yunjin, eunchae]
+  }
 ];
 
 export { waifus, idols };
