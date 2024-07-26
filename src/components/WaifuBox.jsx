@@ -24,7 +24,7 @@ function WaifuBox() {
 
   return (
     <div className="pb-5">
-      <h1 className="mt-10 text-center text-4xl font-bold  drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">
+      <h1 className="mt-10 text-center text-4xl  drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">
         {activeTab === 0 && "Waifu Focus"}
         {activeTab === 1 && "K-pop Focus"}
         {activeTab === 2 && "Your Focus"}
