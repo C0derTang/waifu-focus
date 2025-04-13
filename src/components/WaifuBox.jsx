@@ -1,18 +1,39 @@
 import { useState, useEffect } from "react";
 import WaifuTab from "./WaifuTab";
 import KpopTab from "./KpopTab";
+import CustomTab from "./CustomTab";
+
+const colors = [
+  { name: 'pastel-pink', glow: '#ff5783', bg: '#FFD1DC', text: '#D84C75' },
+  { name: 'pastel-blue', glow: '#57a0ff', bg: '#A7C7E7', text: '#4B8CD4' },
+  { name: 'pastel-green', glow: '#57ff7e', bg: '#B5D6B2', text: '#4CAF50' },
+  { name: 'pastel-purple', glow: '#a957ff', bg: '#D7BDE2', text: '#9B59B6' },
+  { name: 'pastel-yellow', glow: '#fff157', bg: '#FFF1B5', text: '#D4B400' },
+];
 
 function WaifuBox() {
   const [activeTab, setActiveTab] = useState(0);
+  const [selectedColor, setSelectedColor] = useState(colors[0]);
 
   useEffect(() => {
-    // Load the active tab from chrome storage when the component mounts
-    chrome.storage.local.get(['activeTab'], function(result) {
+    // Load the active tab and color from chrome storage when the component mounts
+    chrome.storage.local.get(['activeTab', 'selectedColor'], function(result) {
       if (result.activeTab !== undefined) {
         setActiveTab(result.activeTab);
       }
+      if (result.selectedColor !== undefined) {
+        const savedColor = colors.find(c => c.name === result.selectedColor.name);
+        if (savedColor) {
+          setSelectedColor(savedColor);
+        }
+      }
     });
-  }, []);
+
+    // Apply the colors to the body and update CSS variables
+    document.body.style.backgroundColor = selectedColor.bg;
+    document.documentElement.style.setProperty('--glow-color', selectedColor.glow);
+    document.documentElement.style.setProperty('--text-color', selectedColor.text);
+  }, [selectedColor]);
 
   const handleTabClick = (tabIndex) => {
     setActiveTab(tabIndex);
@@ -22,9 +43,42 @@ function WaifuBox() {
     });
   };
 
+  const handleColorSelect = (color) => {
+    setSelectedColor(color);
+    // Save the selected color to chrome storage
+    chrome.storage.local.set({ selectedColor: color }, function() {
+      console.log('Color saved:', color);
+    });
+  };
+
   return (
     <div className="pb-5">
-      <h1 className="mt-10 text-center text-4xl  drop-shadow-[0_1px_1px_rgba(0,0,0,0.4)]">
+      <div className="fixed left-4 top-1/2 transform -translate-y-1/2 bg-white/90 p-4 rounded-lg shadow-lg z-50">
+        <h3 className="text-sm font-semibold mb-3" style={{ color: selectedColor.text }}>Theme Colors</h3>
+        <div className="flex flex-col gap-3">
+          {colors.map((color) => (
+            <button
+              key={color.name}
+              className="flex items-center gap-2 group"
+              onClick={() => handleColorSelect(color)}
+            >
+              <div
+                style={{ backgroundColor: color.bg }}
+                className={`w-8 h-8 rounded-full border-2 transition-all duration-300 group-hover:scale-110 ${
+                  selectedColor.name === color.name ? 'border-current scale-110' : 'border-gray-300'
+                }`}
+              />
+              <span
+                className="text-sm opacity-0 group-hover:opacity-100 transition-all duration-300"
+                style={{ color: color.text }}
+              >
+                {color.name.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+      <h1 className="mt-10 text-center text-4xl transition-all duration-300">
         {activeTab === 0 && "Waifu Focus"}
         {activeTab === 1 && "K-pop Focus"}
         {activeTab === 2 && "Your Focus"}
@@ -65,7 +119,7 @@ function WaifuBox() {
         <div className="border rounded-b-lg">
           {activeTab === 0 && <WaifuTab />}
           {activeTab === 1 && <KpopTab />}
-          {activeTab === 2 && <div className="text-slate-800">Coming Soon!</div>}
+          {activeTab === 2 && <CustomTab />}
         </div>
       </div>
     </div>

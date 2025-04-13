@@ -2,15 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  transition: background-color 0.3s ease;
+}
+
+:root {
+  --glow-color: #ff57f1;
+  --text-color: #D84C75;
+}
+
+body {
+  transition: background-color 0.3s ease;
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
 .selected-waifu-img {
-  border-color: #ff57f1; 
-  box-shadow: 0 0 15px #ff57f1; 
+  border-color: var(--glow-color);
+  box-shadow: 0 0 15px var(--glow-color);
   transform: scale(1.1); /* Slightly larger */
 }
 
-.pinkglow{
-    border-color: #ff57f1; 
-    box-shadow: 0 0 15px#ff57f1; 
+.pinkglow {
+  border-color: var(--glow-color);
+  box-shadow: 0 0 15px var(--glow-color);
 }
 
 /* prevent css leaking */
