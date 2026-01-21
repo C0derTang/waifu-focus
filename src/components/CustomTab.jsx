@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
+import { safeStorage } from "../utils/chromePolyfill";
 
 function CustomTab() {
   const [uploadedImages, setUploadedImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    // Load saved images and selected image from chrome storage
-    chrome.storage.local.get(['customImages', 'selectedCustomImage'], function(result) {
+    // Load saved images and selected image from storage
+    safeStorage.get(['customImages', 'selectedCustomImage'], function (result) {
       if (result.customImages) {
         setUploadedImages(result.customImages);
       }
@@ -31,18 +32,18 @@ function CustomTab() {
       const base64Image = e.target.result;
       const newImages = [...uploadedImages, base64Image];
       setUploadedImages(newImages);
-      
+
       // If this is the only image, automatically select it
       if (newImages.length === 1) {
         setSelectedImage(0);
-        chrome.storage.local.set({
+        safeStorage.set({
           selectedCustomImage: 0,
           custompic: base64Image
         });
       }
-      
-      // Save to chrome storage
-      chrome.storage.local.set({ customImages: newImages }, function() {
+
+      // Save to storage
+      safeStorage.set({ customImages: newImages }, function () {
         console.log('Custom images saved');
       });
     };
@@ -52,32 +53,32 @@ function CustomTab() {
   const removeImage = (index) => {
     const newImages = uploadedImages.filter((_, i) => i !== index);
     setUploadedImages(newImages);
-    
+
     // If only one image remains, automatically select it
     if (newImages.length === 1) {
       setSelectedImage(0);
-      chrome.storage.local.set({
+      safeStorage.set({
         selectedCustomImage: 0,
         custompic: newImages[0]
       });
     } else if (newImages.length === 0) {
       // If no images remain, clear selection
       setSelectedImage(null);
-      chrome.storage.local.set({
+      safeStorage.set({
         selectedCustomImage: null,
         custompic: null
       });
     } else if (index === selectedImage) {
       // If the removed image was selected, clear selection
       setSelectedImage(null);
-      chrome.storage.local.set({
+      safeStorage.set({
         selectedCustomImage: null,
         custompic: null
       });
     }
-    
-    // Update chrome storage
-    chrome.storage.local.set({ customImages: newImages }, function() {
+
+    // Update storage
+    safeStorage.set({ customImages: newImages }, function () {
       console.log('Custom images updated');
     });
   };
@@ -102,15 +103,14 @@ function CustomTab() {
             <img
               src={image}
               alt={`Custom ${index + 1}`}
-              className={`w-24 h-24 rounded-full border-2 border-gray-300 m-2 transition-transform duration-300 ease-in-out shadow-md ${
-                selectedImage === index ? 'selected-waifu-img' : ''
-              }`}
+              className={`w-24 h-24 rounded-full border-2 border-gray-300 m-2 transition-transform duration-300 ease-in-out shadow-md ${selectedImage === index ? 'selected-waifu-img' : ''
+                }`}
               onClick={() => {
                 setSelectedImage(index);
-                chrome.storage.local.set({
+                safeStorage.set({
                   selectedCustomImage: index,
                   custompic: image
-                }, function() {
+                }, function () {
                   console.log('Selected custom image saved');
                 });
               }}

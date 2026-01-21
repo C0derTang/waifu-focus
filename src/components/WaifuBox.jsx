@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { safeStorage } from "../utils/chromePolyfill";
 import WaifuTab from "./WaifuTab";
 import KpopTab from "./KpopTab";
 import CustomTab from "./CustomTab";
@@ -16,8 +17,8 @@ function WaifuBox() {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
 
   useEffect(() => {
-    // Load the active tab and color from chrome storage when the component mounts
-    chrome.storage.local.get(['activeTab', 'selectedColor'], function(result) {
+    // Load the active tab and color from storage when the component mounts
+    safeStorage.get(['activeTab', 'selectedColor'], function (result) {
       if (result.activeTab !== undefined) {
         setActiveTab(result.activeTab);
       }
@@ -37,16 +38,16 @@ function WaifuBox() {
 
   const handleTabClick = (tabIndex) => {
     setActiveTab(tabIndex);
-    // Save the active tab to chrome storage
-    chrome.storage.local.set({ activeTab: tabIndex }, function() {
+    // Save the active tab to storage
+    safeStorage.set({ activeTab: tabIndex }, function () {
       console.log('Active tab saved:', tabIndex);
     });
   };
 
   const handleColorSelect = (color) => {
     setSelectedColor(color);
-    // Save the selected color to chrome storage
-    chrome.storage.local.set({ selectedColor: color }, function() {
+    // Save the selected color to storage
+    safeStorage.set({ selectedColor: color }, function () {
       console.log('Color saved:', color);
     });
   };
@@ -54,7 +55,7 @@ function WaifuBox() {
   return (
     <div className="pb-5">
       <div className="fixed left-4 top-1/2 transform -translate-y-1/2 bg-white/90 p-4 rounded-lg shadow-lg z-50">
-        <h3 className="text-sm font-semibold mb-3" style={{ color: selectedColor.text }}>Theme Colors</h3>
+        <h3 className="text-sm font-bold mb-3 text-slate-700">Theme Colors</h3>
         <div className="flex flex-col gap-3">
           {colors.map((color) => (
             <button
@@ -64,13 +65,11 @@ function WaifuBox() {
             >
               <div
                 style={{ backgroundColor: color.bg }}
-                className={`w-8 h-8 rounded-full border-2 transition-all duration-300 group-hover:scale-110 ${
-                  selectedColor.name === color.name ? 'border-current scale-110' : 'border-gray-300'
-                }`}
+                className={`w-8 h-8 rounded-full border-2 transition-all duration-300 group-hover:scale-110 ${selectedColor.name === color.name ? 'border-current scale-110' : 'border-gray-300'
+                  }`}
               />
               <span
-                className="text-sm opacity-0 group-hover:opacity-100 transition-all duration-300"
-                style={{ color: color.text }}
+                className="text-sm font-medium text-slate-600 transition-all duration-300"
               >
                 {color.name.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
               </span>
@@ -86,31 +85,28 @@ function WaifuBox() {
       <div className="w-full max-w-md mx-auto mt-10  p-4 rounded-lg">
         <div className="flex border-b border-blue-500">
           <div
-            className={`px-4 py-2 cursor-pointer ${
-              activeTab === 0
-                ? "border-b-2 "
-                : "text-slate-800"
-            } hover:text-blue-500 transition-colors`}
+            className={`px-4 py-2 cursor-pointer ${activeTab === 0
+              ? "border-b-2 "
+              : "text-slate-800"
+              } hover:text-blue-500 transition-colors`}
             onClick={() => handleTabClick(0)}
           >
             Waifu
           </div>
           <div
-            className={`px-4 py-2 cursor-pointer ${
-              activeTab === 1
-                ? "border-b-2 "
-                : "text-slate-800"
-            } hover:text-slate-500 transition-colors`}
+            className={`px-4 py-2 cursor-pointer ${activeTab === 1
+              ? "border-b-2 "
+              : "text-slate-800"
+              } hover:text-slate-500 transition-colors`}
             onClick={() => handleTabClick(1)}
           >
             K-pop
           </div>
           <div
-            className={`px-4 py-2 cursor-pointer ${
-              activeTab === 2
-                ? "border-b-2 border-slate-500 text-slate-500"
-                : "text-slate-800"
-            } hover:text-slate-500 transition-colors`}
+            className={`px-4 py-2 cursor-pointer ${activeTab === 2
+              ? "border-b-2 border-slate-500 text-slate-500"
+              : "text-slate-800"
+              } hover:text-slate-500 transition-colors`}
             onClick={() => handleTabClick(2)}
           >
             Custom
