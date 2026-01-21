@@ -3,7 +3,6 @@
     "name": "Waifu Focus",
     "version": "3.0",
     "description": "Boost productivity with waifus, idols, and images of your choice!",
-
     "action": {
         "default_icon": {
             "16": "public/icon-16.png",
@@ -20,11 +19,12 @@
     },
     "options_page": "index.html",
     "background": {
-        "service_worker": "background.js",
+        "service_worker": "src/background.js",
         "type": "module"
     },
     "permissions": [
         "tabs",
-        "storage"
+        "storage",
+        "webNavigation"
     ]
 }

@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  transition: background-color 0.3s ease;
-}
-
 :root {
   --glow-color: #ff57f1;
   --text-color: #D84C75;
@@ -14,6 +10,7 @@ body {
 body {
   transition: background-color 0.3s ease;
   color: var(--text-color);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,23 +18,39 @@ h1, h2, h3, h4, h5, h6 {
   transition: color 0.3s ease;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 192, 203, 0.5);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 105, 180, 0.6);
+}
+
+/* Utilities */
+.soft-shadow {
+  box-shadow: 0 4px 20px -2px rgba(255, 192, 203, 0.2);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
 .selected-waifu-img {
   border-color: var(--glow-color);
   box-shadow: 0 0 15px var(--glow-color);
-  transform: scale(1.1); /* Slightly larger */
+  transform: scale(1.1);
 }
 
 .pinkglow {
   border-color: var(--glow-color);
   box-shadow: 0 0 15px var(--glow-color);
-}
-
-/* prevent css leaking */
-#crx-root button {
-  border-color: rgb(118, 118, 118);
-  border-image: initial;
-  border-style: outset;
-  border-width: 2px;
-  margin: 0;
-  padding: 1px 6px;
 }
